@@ -14,3 +14,16 @@ class Motorcycle_Company(models.Model):
     
     class Meta:
         ordering = ["name"]
+        
+#Model for the Motorcycle models
+class Motorcycle_Model(models.Model):
+    name = models.CharField(max_length = 100)
+    image = models.CharField(max_length = 500)
+    year_created = models.CharField(max_length = 4)
+    Specs = models.CharField(max_length = 500)
+    
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        ordering = ["name"]
