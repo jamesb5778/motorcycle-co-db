@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<h1>A list of Motorcycle Companies</h1>
+<h1 class = "title pt-5">{{header}}</h1>
 
 <form class = "mb-5" method = "get">
     <div class = "field has-addons">
@@ -11,23 +11,24 @@
         </div>
     </div>
     <a class = "button is-dark" href = "{% url 'motorcycle_co_list' %}">Clear Search</a>
+    <a class = "button is-dark" href = "{% url 'motorcycle_co_create' %}">Add Motorcycle Company</a>
 </form>
 
 <div class = "gallery">
     {% for motorcycle_company in motorcycle_company %}
-    <a href = "">
-        <div class = "card">
-            <div class = "card-image">
-                <figure class = "image is-square">
-                    <image src = "{{motorcycle_company.image}}" alt = "{{motorcycle_company.name}}" />
-                </figure>
-            </div>
-            <div class = "card-header">
-                <p class = "card-header-title">{{motorcycle_company.name}}</p>
-            </div>
-        </div>
-    </a>
-    {% endfor %}
+        <a href = "{% url 'motorcycle_co_details' motorcycle_company.pk %}">
+            <div class = "card">
+                <div class = "card-image">
+                    <figure class = "image is-square">
+                        <image src = "{{motorcycle_company.image}}" alt = "{{motorcycle_company.name}}" />
+                    </figure>
+                </div>
+                <div class = "card-header">
+                    <p class = "card-header-title">{{motorcycle_company.name}}</p>
+                </div>
+             </div>
+        </a>
+        {% endfor %}
 </div>
 
 {% endblock %}
