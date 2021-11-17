@@ -14,4 +14,6 @@ urlpatterns = [
     # path to update motorcycle company
     path('motorcycle_co_list/<int:pk>/update', views. Motorcycle_Co_Update.as_view(), name = "motorcycle_co_update"),
     # path for single model of motorcycle
+    # path for deleting motorcycle 
+    path('motorcycle_co_list/<int:pk>/delete', views.Motorcycle_Co_Delete.as_view(), name = "motorcycle_co_delete"),
 ]

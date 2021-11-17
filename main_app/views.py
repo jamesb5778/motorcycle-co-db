@@ -3,7 +3,9 @@ from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView
-from django.views.generic import UpdateView
+from django.views.generic.edit import UpdateView
+from django.views.generic.edit import DeleteView
+from django.urls import reverse
 from .models import Motorcycle_Company
 
 # Create your views here.
@@ -31,7 +33,9 @@ class Motorcycle_Co_Create(CreateView):
     model = Motorcycle_Company
     fields = ['name', 'image', 'founded', 'description']
     template_name = "motorcycle_co_create.html"
-    success_url = "/motorcycle_co_list/"
+    
+    def get_success_url(self):
+        return reverse('motorcycle_co_details', kwargs = {'pk': self.object.pk})
 
 # view for Motorcycle company details
 class Motorcycle_Co_Details(DetailView):
@@ -43,4 +47,12 @@ class Motorcycle_Co_Update(UpdateView):
     model = Motorcycle_Company
     fields = ['name', 'image', 'founded', 'description']
     template_name = "motorcycle_co_update.html"
+    
+    def get_success_url(self):
+        return reverse('motorcycle_co_details', kwargs = {'pk': self.object.pk})
+    
+#class to delete motorcycle Company 
+class Motorcycle_Co_Delete(DeleteView):
+    model = Motorcycle_Company
+    template_name = "motorcycle_co_delete_confirmation.html"
     success_url = "/motorcycle_co_list/"
