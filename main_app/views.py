@@ -6,7 +6,7 @@ from django.views.generic import DetailView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 from django.urls import reverse
-from .models import Motorcycle_Company
+from .models import Motorcycle_Company, Motorcycle_Model
 
 # Create your views here.
 #view for the homepage
@@ -56,3 +56,8 @@ class Motorcycle_Co_Delete(DeleteView):
     model = Motorcycle_Company
     template_name = "motorcycle_co_delete_confirmation.html"
     success_url = "/motorcycle_co_list/"
+    
+#class to view a single motorcycle model or the details of that model after being clicked
+class Motorcycle_Model_Details(DetailView):
+    model = Motorcycle_Model
+    template_name = "motorcycle_model_details.html"

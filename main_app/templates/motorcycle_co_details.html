@@ -26,7 +26,7 @@
     </div>
     <div class = "gallery">
         <h4>Models</h4>
-        {% for motorcycle_model in company.mc_models.all %}
+        {% for motorcycle_model in motorcycle_company.mc_models.all %}
         <a href = "">
             <div class = "card">
                 <div class = "card-image">
@@ -39,8 +39,14 @@
                 </div>
             </div>
         </a>
+        {% empty %}
+            <article class="message">
+                <div class="message-header">
+                     <p>No Motorcycle Found in this Garage</p>
+                </div>
+            </article>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 
 {% endblock %}
