@@ -2,7 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # path for login
     # path for the home page.
     path('', views.Home.as_view(), name = "home"),
     # path for motorcycle company list page
@@ -13,7 +12,6 @@ urlpatterns = [
     path('motorcycle_co_list/<int:pk>/', views.Motorcycle_Co_Details.as_view(), name = "motorcycle_co_details"),
     # path to update motorcycle company
     path('motorcycle_co_list/<int:pk>/update', views. Motorcycle_Co_Update.as_view(), name = "motorcycle_co_update"),
-    # path for single model of motorcycle
-    # path for deleting motorcycle 
+    # path for deleting motorcycle company
     path('motorcycle_co_list/<int:pk>/delete', views.Motorcycle_Co_Delete.as_view(), name = "motorcycle_co_delete"),
 ]

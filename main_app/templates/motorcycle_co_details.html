@@ -24,6 +24,23 @@
         <h4 class = "title is-4">Description</h4>
         <p>{{motorcycle_company.description}}</p>
     </div>
+    <div class = "gallery">
+        <h4>Models</h4>
+        {% for motorcycle_model in company.mc_models.all %}
+        <a href = "">
+            <div class = "card">
+                <div class = "card-image">
+                    <figure class = "image is-square">
+                        <image src = "{{motorcycle_model.image}}" alt = "{{motorcycle_model.name}}" />
+                    </figure>
+                </div>
+                <div class = "card-header">
+                    <p class = "card-header-title">{{motorcycle_model.name}}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
