@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content}
+{% block title %}Motorcycle Models{% endblock %} {% block content %}
+
+<h1 class = "title pt-5">Motorcycle Models</h1>
+<div class = "gallery">
+    {for motorcycle_model in mc_models %}
+    <a href = "">
+        <div class = "card">
+            <div class = "card-image">
+                <figure class = "image is-square">
+                    <p>Company: {{mc_models.company}}</p>
+                    <p>Model Name: {{mc_models.name}}</p>
+                </figure>
+            </div>
+            <div class = "card-header">
+                <p class = "card-header-title">{{mc_models.name}}</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+{% endblock %}

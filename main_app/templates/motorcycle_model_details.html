@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
 <h1>This should be a specific motorcycle model</h1>
-
+<div class = "detail__image">
+    <image src = "{{mc_models.image}}" alt = "{{mc_models.name}}" />
+</div>
 {% endblock %}
